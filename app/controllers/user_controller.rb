@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UserController < ApplicationController
 
   # def new
@@ -5,26 +7,34 @@ class UserController < ApplicationController
   # end
 
   def index
+    @users = User.all
   end
 
-  # def create
-  #   user = User.find(params[:user_id])
-  #   if user && user.authenticate(params[:password])
-  #     session[:user_id] = user.id
-  #     user.last_access = Time.now
-  #     user.save
-      
-  #     redirect_to root_url
-  #   else
-  #     flash.now[:error] = "Senha inválida!"
-  #     @users = User.all
-  #     render "new"
-  #   end
-  # end
+  def show
+    @user = User.find params[:id]
+  end
+  
+  def update
+    user = User.find params[:id]
+    user.name = params[:user][:name]
+    user.email = params[:user][:email]
+    user.access = params[:user][:access]
+    user.save
+    redirect_to user_index_path, notice: "O usuário #{user.name} foi atualizado com sucesso!"
+  end
 
-  # def destroy
-  #   session[:user_id] = nil
-  #   redirect_to login_url, :notice => "Você foi deslogado"
-  # end
+  def create
+    if User.where(email: params[:user][:email]).exists? then
+      flash[:error] = "O e-mail #{params[:user][:email]} já está cadastrado no sistema!"
+      redirect_to new_user_path, error: "O e-mail #{params[:user][:email]} já está cadastrado no sistema!" 
+      return
+    end
 
+    user = User.new
+    user.name = params[:user][:name]
+    user.email = params[:user][:email]
+    user.access = params[:user][:access]
+    user.save
+    redirect_to user_index_path, notice: "O usuário #{user.name} foi cadastrado com sucesso!"
+  end
 end
