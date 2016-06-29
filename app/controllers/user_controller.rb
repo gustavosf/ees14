@@ -23,6 +23,12 @@ class UserController < ApplicationController
     redirect_to user_index_path, notice: "O usuário #{user.name} foi atualizado com sucesso!"
   end
 
+  def destroy
+    user = User.find params[:id]
+    user.delete
+    redirect_to user_index_path, notice: "O usuário #{user.name} foi removido com sucesso!"
+  end
+
   def create
     if User.where(email: params[:user][:email]).exists? then
       flash[:error] = "O e-mail #{params[:user][:email]} já está cadastrado no sistema!"

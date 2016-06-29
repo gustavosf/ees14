@@ -2,15 +2,19 @@
 
 = form_for @user, :url => {:controller => 'user', :action => 'update'} do |f|
   %div
-    = label_tag :list_name, 'Nome'
+    = label_tag :name, 'Nome'
     = f.text_field :name
   %div
-    = label_tag :list_name, 'E-Mail'
+    = label_tag :email, 'E-Mail'
     = f.text_field :email
   %div
-    = label_tag :list_name, 'Grau de acesso'
+    = label_tag :access, 'Grau de acesso'
     = f.select :access do
       = options_for_select [['Admin', 'admin'], ['Registrado', 'registrado']]
+  %div
+    = form_tag @user, method: 'delete' do
+      = label_tag :delete, 'Deseja excluir usuário?'
+      = submit_tag 'Deletar'
   %div
     = submit_tag 'Salvar'
     = submit_tag 'Cancelar', onclick: 'history.back()'
