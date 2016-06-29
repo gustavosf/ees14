@@ -22,6 +22,16 @@ $(document).ready(function() {
 			})
 		}
 	});
+	$('[rel=order]').on('change', function(){
+		var order = $(this).val(),
+			container = $('ul.pub-list'),
+			list = $('li.pub-record').sort(function(a, b){
+				var aval = $(a).children('span.pub-'+order).text().toLowerCase();
+				var bval = $(b).children('span.pub-'+order).text().toLowerCase();
+				return aval.localeCompare(bval);
+			});
+		list.detach().appendTo(container);
+	});
 });
 
 var getFilters = function() {

@@ -9,6 +9,9 @@
   %br
   Tipo
   = select_tag :tipo, options_for_select([['',''], ['Periódico', 'Periodico'], ['Conferência', 'Conferência'], ['Livro', 'Livro']]), rel: 'filter'
+  %br
+  Ordernar por:
+  = select_tag :order, options_for_select([['',''], ['Ano', 'ano'], ['Título', 'titulo'], ['Tipo', 'tipo']]), rel: 'order'
 
 %br
 
@@ -16,7 +19,7 @@
   = link_to "Incluir publicação", new_pub_path
 
 %hr
-%ul
+%ul.pub-list
   - @pubs.each do |pub|
     %li.pub-record
       %span.pub-tipo [#{pub._type}] 
