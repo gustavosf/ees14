@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  #before_filter :require_login
+  before_filter :require_login
 
   private 
 
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.get_current
+    @current_user ||= session[:user]
   end
 
   helper_method :current_user

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class SessionController < ApplicationController
 
   skip_before_filter :require_login
@@ -7,16 +9,12 @@ class SessionController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
+    user = User.where(email: params[:email]).first
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      user.last_access = Time.now
-      user.save
-      
+      session[:user] = user
       redirect_to root_url
     else
-      flash.now[:error] = "Senha inválida!"
-      @users = User.all
+      flash.now[:error] = "Usuário ou senha inválido(s)!"
       render "new"
     end
   end

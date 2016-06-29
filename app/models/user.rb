@@ -12,11 +12,18 @@ class User
   validates_presence_of :email
   validates_presence_of :name
   validates_presence_of :access
+  validates_presence_of :password, :on => :create
 
   before_create :generate_default_password
 
-  def self.get_current
-  	User.find_by(email: session[:user_id]) if defined? session[:user_id]
+  def authenticate(password)
+    if password == self.password then
+      last_login = Time.now
+      save
+      return true
+    else
+      return false
+    end
   end
 
   protected
