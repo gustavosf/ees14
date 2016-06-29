@@ -9,6 +9,7 @@ gem 'symmetric-encryption', '~> 3.1.x'
 gem 'mongoid-slug'
 gem 'bson_ext'
 
+gem 'jquery-rails' # latest jquery
 gem 'haml' # Haml parser
 gem 'simple_form' # Create forms
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
