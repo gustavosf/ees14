@@ -9,6 +9,9 @@
     = stylesheet_link_tag "application", params[:controller], :media => "all", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    - if current_user
+      %header
+        = link_to "logout", logout_path
     - flash.each do |key, value|
       %div.flash
         = value
