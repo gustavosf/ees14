@@ -1,0 +1,94 @@
+%h2 Nova publicação
+
+%hr
+= form_for :publicacao, :url => {:controller => 'pub', :action => 'create'} do |f|
+  %div
+    = label_tag :_type, 'Tipo'
+    = select_tag :_type, options_for_select([['Periódico', 'periodico'], ['Conferência', 'conferencia'], ['Livro', 'livro']], @type), :onchange => ('window.location = window.location.pathname+"?type="+this.value')
+  %div
+    = label_tag :ano, 'Ano'
+    = f.text_field :ano, type: 'number'
+  %div
+    = label_tag :titulo, 'Titulo'
+    = f.text_field :titulo
+  %div
+    = label_tag :idioma, 'Idioma'
+    = f.text_field :idioma
+  %div
+    = label_tag :link, 'Link'
+    = f.text_field :link
+
+  - if @type == 'periodico'
+    %div
+      = label_tag :issn, 'ISSN'
+      = f.text_field :issn
+    %div
+      = label_tag :doi, 'DOI'
+      = f.text_field :doi
+    %div
+      = label_tag :volume, 'Volume'
+      = f.text_field :volume
+    %div
+      = label_tag :fasciculo, 'Fascículo'
+      = f.text_field :fasciculo
+    %div
+      = label_tag :edicao, 'Edição'
+      = f.text_field :edicao
+    %div
+      = label_tag :pag_inicial, 'Páginas'
+      = f.text_field :pag_inicial, type: 'number', placeholder: 'inicial'
+      = f.text_field :pag_final, type: 'number', placeholder: 'final'
+    %div
+      = label_tag :pais, 'País'
+      = f.text_field :pais
+    %div
+      = label_tag :autores, 'Autores'
+      = text_field_tag 'autores[]'
+      = link_to "Adicionar autor", '#', :onclick => 'addAutor(this)'
+
+  - if @type == 'livro'
+    %div
+      = label_tag :doi, 'DOI'
+      = f.text_field :doi
+    %div
+      = label_tag :volume, 'Volume'
+      = f.text_field :volume
+    %div
+      = label_tag :edicao, 'Edição'
+      = f.text_field :edicao
+    %div
+      = label_tag :pais, 'País'
+      = f.text_field :pais
+    %div
+      = label_tag :autores, 'Autores'
+      = text_field_tag 'autores[]'
+      = link_to "Adicionar autor", '#', :onclick => 'addAutor(this)'
+
+  - if @type == 'conferencia'
+    %div
+      = label_tag :conference, 'Conferência'
+      = f.text_field :conference
+    %div
+      = label_tag :isbn, 'ISBN'
+      = f.text_field :isbn
+    %div
+      = label_tag :volume, 'Volume'
+      = f.text_field :volume
+    %div
+      = label_tag :fasciculo, 'Fascículo'
+      = f.text_field :fasciculo
+    %div
+      = label_tag :edicao, 'Edição'
+      = f.text_field :edicao
+    %div
+      = label_tag :pais, 'País'
+      = f.text_field :pais
+    %div
+      = label_tag :autores, 'Autores'
+      = text_field_tag 'autores[]'
+      = link_to "Adicionar autor", '#', :onclick => 'addAutor(this)'
+
+  %div
+    = submit_tag 'Salvar'
+    = submit_tag 'Cancelar', onclick: 'history.back()'
+  

@@ -1,4 +1,4 @@
-class Conferencia < Element
+class Conferencia < Publicacao
   field :conferencia, type: String
   field :isbn, type: String
   field :volume, type: String

@@ -1,4 +1,4 @@
-class Periodico < Element
+class Periodico < Publicacao
   field :issn, type: String
   field :doi, type: String
   field :volume, type: String, default: nil

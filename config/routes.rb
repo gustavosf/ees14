@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :user
+  resources :pub
 
   resources :session, :only => [:new, :create, :destroy]
   controller :session do 
