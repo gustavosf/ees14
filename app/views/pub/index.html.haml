@@ -9,8 +9,9 @@
 
 %hr
 %ul
-  - @users.each do |user|
+  - @pubs.each do |pub|
     %li
-      = link_to user.name, user
+      [#{pub._type}]
+      = link_to pub.titulo, pub_path(:id => pub.id)
       %br
-      E-mail: #{user.email}
+      #{pub.autores.join(',')}
