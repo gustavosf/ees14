@@ -31,3 +31,4 @@ class Publicacao
     end
   end
 end
+
