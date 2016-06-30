@@ -1,8 +1,7 @@
-#{@pub.ano}, #{@pub.periodico}
-%br
-= @pub.autores.join(', ')
+%p #{@pub.ano}, #{@pub.periodico}
+%p= @pub.autores.join(', ')
 
-%table
+%table.table
   %tr
     %th ISSN
     %td= @pub.issn

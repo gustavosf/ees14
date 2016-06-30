@@ -1,4 +1,19 @@
 /* ...
 *= require template/style
+*= require bootstrap
 *= require_self
 */
+
+.container.main {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.bottom-align {
+    vertical-align: bottom;
+	margin-bottom: 0;
+}
+
+.align-right {
+	text-align: right;
+}

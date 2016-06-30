@@ -1,29 +1,34 @@
-%div
-  Filtrar por:
-  %br
-  Ano
-  = text_field_tag :ano, nil, type: 'number', rel: 'filter'
-  %br
-  Titulo
-  = text_field_tag :titulo, nil, rel: 'filter'
-  %br
-  Tipo
-  = select_tag :tipo, options_for_select([['',''], ['Periódico', 'Periodico'], ['Conferência', 'Conferência'], ['Livro', 'Livro']]), rel: 'filter'
-  %br
-  Ordernar por:
-  = select_tag :order, options_for_select([['',''], ['Ano', 'ano'], ['Título', 'titulo'], ['Tipo', 'tipo']]), rel: 'order'
-
-%br
-
-%div
-  = link_to "Incluir publicação", new_pub_path
-  = link_to "Administrar usuaŕios", user_index_path
-  = link_to "Gerar embed code", '#'
+.row
+  .col-xs-6
+    %table.table
+      %thead
+        %tr
+          %th{colspan:2} Filtrar por:
+      %tbody
+        %tr
+          %th Ano
+          %td= text_field_tag :ano, nil, type: 'number', rel: 'filter',class: 'form-control'
+        %tr
+          %th Titulo
+          %td= text_field_tag :titulo, nil, rel: 'filter', class: 'form-control'
+        %tr
+          %th Tipo
+          %td= select_tag :tipo, options_for_select([['',''], ['Periódico', 'Periodico'], ['Conferência', 'Conferencia'], ['Livro', 'Livro']]), rel: 'filter', class: 'form-control'
+        %tr
+          %th Ordernar por:
+          %td= select_tag :order, options_for_select([['',''], ['Ano', 'ano'], ['Título', 'titulo'], ['Tipo', 'tipo']]), rel: 'order', class: 'form-control'
+  .col-xs-6.align-right
+    %br
+    %br
+    %br
+    %p= link_to "Incluir publicação", new_pub_path
+    %p= link_to "Administrar usuaŕios", user_index_path
+    %p= link_to "Gerar embed code", '#'
 
 %hr
 %ul.pub-list
   - @pubs.each do |pub|
-    - if pub.enabled or current_user.admin?
+    - if pub.enabled or current_user.admin? 
       %li.pub-record
         %span.pub-tipo [#{pub._type}] 
         %span.pub-ano [#{pub.ano}]

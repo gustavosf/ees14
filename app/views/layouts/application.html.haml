@@ -10,10 +10,18 @@
     = csrf_meta_tags
   %body
     - if current_user
-      %header
-        = link_to "logout", logout_path
+      %nav.navbar.navbar-default
+        .container-fluid
+          .collapse.navbar-collapse
+            %button.btn.btn-default.navbar-btn.navbar-right
+              = link_to "logout", logout_path
+        </div>
+      </nav>
+
     - flash.each do |key, value|
       %div.flash
         = value
-    = yield
+    .container.main
+      = yield
+    
     = javascript_include_tag "application", params[:controller]

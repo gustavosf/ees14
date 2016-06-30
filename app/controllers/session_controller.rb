@@ -20,7 +20,7 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:user] = nil
     redirect_to login_url, :notice => "Você foi deslogado"
   end
 

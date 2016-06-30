@@ -1,15 +1,15 @@
-%h2 Publicação
-
-= link_to 'Exportar', '#'
-- if current_user.admin?
-  - if @pub.enabled
-    = link_to 'Desativar', disable_pub_path(@pub), onclick: 'return confirm("Deseja desativar esta produção?")'
-  - else
-    = link_to 'Ativar', enable_pub_path(@pub)
+.row
+  .col-md-8
+    %h2 Publicação
+  .col-md-4{style:"text-align:right"}
+    %br= link_to 'Exportar', '#'
+    - if current_user.admin?
+      - if @pub.enabled
+        = link_to 'Desativar', disable_pub_path(@pub), onclick: 'return confirm("Deseja desativar esta produção?")'
+      - else
+        = link_to 'Ativar', enable_pub_path(@pub)
 
 %hr
 
-%b= @pub.titulo
-%br
-
+%h4= @pub.titulo
 = render @pub._type.downcase
