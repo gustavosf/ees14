@@ -1,0 +1,26 @@
+#{@pub.ano}, #{@pub.periodico}
+%br
+= @pub.autores.join(', ')
+
+%table
+  %tr
+    %th ISSN
+    %td= @pub.issn
+  %tr
+    %th DOI
+    %td= @pub.doi
+  %tr
+    %th País
+    %td= @pub.pais
+  %tr
+    %th Edição
+    %td= @pub.edicao
+  %tr
+    %th Volume
+    %td= @pub.volume
+  %tr
+    %th Fascículo
+    %td= @pub.fasciculo
+  %tr
+    %th Páginas
+    %td #{@pub.pag_inicial} a #{@pub.pag_final}

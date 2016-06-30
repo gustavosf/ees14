@@ -1,4 +1,5 @@
 class Periodico < Publicacao
+  field :periodico, type: String
   field :issn, type: String
   field :doi, type: String
   field :volume, type: String, default: nil

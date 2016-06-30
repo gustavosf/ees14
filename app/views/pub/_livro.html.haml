@@ -1,0 +1,17 @@
+#{@pub.ano}, #{@pub.conferencia}
+%br
+= @pub.autores.join(', ')
+
+%table
+  %tr
+    %th DOI
+    %td= @pub.doi
+  %tr
+    %th País
+    %td= @pub.pais
+  %tr
+    %th Edição
+    %td= @pub.edicao
+  %tr
+    %th Volume
+    %td= @pub.volume

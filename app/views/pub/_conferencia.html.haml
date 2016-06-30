@@ -1,0 +1,26 @@
+#{@pub.ano}, #{@pub.conferencia}
+%br
+= @pub.autores.join(', ')
+
+%table
+  %tr
+    %th ISBN
+    %td= @pub.isbn
+  %tr
+    %th País
+    %td= @pub.pais
+  %tr
+    %th Cidade
+    %td= @pub.cidade
+  %tr
+    %th Edição
+    %td= @pub.edicao
+  %tr
+    %th Volume
+    %td= @pub.volume
+  %tr
+    %th Fascículo
+    %td= @pub.fasciculo
+  %tr
+    %th Páginas
+    %td #{@pub.pag_inicial} a #{@pub.pag_final}

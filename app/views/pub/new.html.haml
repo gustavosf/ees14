@@ -20,6 +20,9 @@
 
   - if @type == 'periodico'
     %div
+      = label_tag :periodico, 'Periódico'
+      = f.text_field :periodico
+    %div
       = label_tag :issn, 'ISSN'
       = f.text_field :issn
     %div
