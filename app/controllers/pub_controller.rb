@@ -40,4 +40,18 @@ class PubController < ApplicationController
     redirect_to pub_index_path, notice: "A publicação #{pub.titulo} foi cadastrada com sucesso!"
   end
 
+  def disable
+    pub = Publicacao.find params[:id] 
+    pub.enabled = false
+    pub.save
+    redirect_to pub_path(pub), notice: "A publicação #{pub.titulo} foi desativada"
+  end
+
+  def enable
+    pub = Publicacao.find params[:id] 
+    pub.enabled = true
+    pub.save
+    redirect_to pub_path(pub), notice: "A publicação #{pub.titulo} foi reativada"
+  end
+
 end

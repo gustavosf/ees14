@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   resources :user
   resources :pub
+  controller :pub do
+    get 'pub/:id/disable', to: 'pub#disable', as: 'disable_pub'
+    get 'pub/:id/enable', to: 'pub#enable', as: 'enable_pub'
+  end
+
 
   resources :session, :only => [:new, :create, :destroy]
   controller :session do 

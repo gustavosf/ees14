@@ -8,6 +8,7 @@ class Publicacao
   field :titulo, type: String
   field :idioma, type: String
   field :link, type: String
+  field :enabled, type: Boolean, default: true
 
   def self.types
     return ['periodico', 'livro', 'conferencia']

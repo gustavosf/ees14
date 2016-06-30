@@ -1,12 +1,14 @@
 %h2 Publicação
 
 = link_to 'Exportar', '#'
-= link_to 'Desativar', '#'
+- if (@pub.enabled)
+  = link_to 'Desativar', disable_pub_path(@pub), onclick: 'return confirm("Deseja desativar esta produção?")'
+- else
+  = link_to 'Ativar', enable_pub_path(@pub)
 
 %hr
 
 %b= @pub.titulo
 %br
 
-- if @pub._type == 'Periodico'
-  = render 'periodico'
+= render @pub._type.downcase
