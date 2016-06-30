@@ -1,0 +1,59 @@
+[{
+  "idioma": "Português",
+  "link": "http://ried.utpl.edu.ec/sites/default/files/file/ried-v17-1.pdf",
+  "ISSN": "11382783",
+  "titulo": "Adaptatividade Geocultural em Ambientes Virtuais de Aprendizagem",
+  "periodico": "Revista Iberoamericana de Educación a Distancia",
+  "volume": 17,
+  "pag_inicial": 83,
+  "pag_final": 109,
+  "ano": 2014,
+  "pais": "Não Informado",
+  "autores": ["PALAZZO M. de Oliveira, José", "LIMA, José Valdeni de", "WIVES, Leandro Krug", "PERNAS, A. M.", "GASPARINI, I.", "FERNANDEZ, A.", "DIAZ, A."]
+},{
+  "titulo": "Examining Multiple Features for Author Profiling",
+  "periodico": "Journal of Information and Data Management - JIDM",
+  "volume": 5,
+  "pag_inicial": 266,
+  "pag_final": 279,
+  "ano": 2014,
+  "pais": "Não informado",
+  "idioma": "Inglês",
+  "link": "http://https://seer.lcc.ufmg.br/index.php/jidm/article/view/716/620",
+  "ISSN": "21787107",
+  "autores": ["WEREN, E. R. D.", "KAUER, A. U.", "MIZUSAKI, L.", "Moreira, Viviane Pereira", "PALAZZO M. de Oliveira, José", "WIVES, Leandro Krug"]
+},{
+  "autores": ["CORDEIRO, R. A. C.", "NUNES, R. M. B.", "WIVES, Leandro Krug", "Rapkiewicz, Clevi Elena"],
+  "titulo": "Desenvolvimento de um repositório de Objetos de Aprendizagem utilizando Bancos de Dados NoSQL",
+  "periodico": "RENOTE. Revista Novas Tecnologias na Educação",
+  "volume": 11,
+  "pag_inicial": 1,
+  "pag_final": 10,
+  "ano": 2013,
+  "pais": "Não informado",
+  "idioma": "Português",
+  "ISSN": "16791916" 
+},{
+  "autores": ["Santos", "LIMA, José Valdeni de", "WIVES, Leandro Krug"],
+  "titulo": "Integração de recursos para acesso aos Objetos de Aprendizagem Multimodais",
+  "periodico": "RENOTE. Revista Novas Tecnologias na Educação",
+  "volume": 10, 
+  "pag_inicial": 1,
+  "pag_final": 10,
+  "ano": 2012,
+  "pais": "Não informado",
+  "idioma": "Português",
+  "link": "http://seer.ufrgs.br/renote/article/view/36394",
+  "ISSN": "16791916"
+},{
+  "autores": ["BASTOS, H. P. P.", "Magda Bercht", "WIVES, Leandro Krug"],
+  "titulo": "Presença Social em Cursos a Distância: um estudo comparativo de postagens em chats e fóruns",
+  "periodico": "RENOTE. Revista Novas Tecnologias na Educação",
+  "volume": 8,
+  "pag_inicial": 1,
+  "pag_final": 10,
+  "ano": 2010,
+  "pais": "Não informado",
+  "idioma": "Português",
+  "ISSN": "16791916"
+}]

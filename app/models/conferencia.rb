@@ -1,6 +1,7 @@
 class Conferencia < Publicacao
   field :conferencia, type: String
   field :isbn, type: String
+  field :doi, type: String
   field :volume, type: String
   field :fasciculo, type: String
   field :edicao, type: String

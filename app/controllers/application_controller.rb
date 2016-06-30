@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find session[:user]['_id']['$oid']
+    unless (session[:user].nil?) then
+      @current_user ||= User.find session[:user]['_id']['$oid']
+    end
   end
 
   def admin_only

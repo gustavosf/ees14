@@ -6,3 +6,15 @@ users = JSON.parse(File.read(Rails.root.join('db/seeds/users.json')))
 users.each do |user|
   User.create!(user)
 end
+
+Periodico.delete_all
+pubs = JSON.parse(File.read(Rails.root.join('db/seeds/periodicos.json')))
+pubs.each do |pub|
+  Periodico.create!(pub)
+end
+
+Conferencia.delete_all
+pubs = JSON.parse(File.read(Rails.root.join('db/seeds/conferencias.json')))
+pubs.each do |pub|
+  Conferencia.create!(pub)
+end
