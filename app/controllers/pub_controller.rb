@@ -2,6 +2,9 @@
 
 class PubController < ApplicationController
 
+  before_filter :admin_only, :only => [:disable, :enable]
+  before_filter :registered_only, :except => :index
+
   def index
     @pubs = Publicacao.all
   end

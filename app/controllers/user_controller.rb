@@ -2,6 +2,8 @@
 
 class UserController < ApplicationController
 
+  before_filter :admin_only
+
   # def new
   # 	print "kdoekdoeakdoea"
   # end

@@ -23,9 +23,12 @@
 %hr
 %ul.pub-list
   - @pubs.each do |pub|
-    %li.pub-record
-      %span.pub-tipo [#{pub._type}] 
-      %span.pub-ano [#{pub.ano}]
-      %span.pub-titulo= link_to pub.titulo, pub_path(:id => pub.id)
-      %br
-      #{pub.autores.join(', ')}
+    - if pub.enabled or current_user.admin?
+      %li.pub-record
+        %span.pub-tipo [#{pub._type}] 
+        %span.pub-ano [#{pub.ano}]
+        %span.pub-titulo= link_to pub.titulo, pub_path(:id => pub.id)
+        - unless pub.enabled
+          %span [desabilitado]
+        %br
+        #{pub.autores.join(', ')}

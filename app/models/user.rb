@@ -26,6 +26,14 @@ class User
     end
   end
 
+  def admin?
+    access == 'admin'
+  end
+
+  def registered?
+    access == 'registered' or access == 'admin'
+  end
+
   protected
 
   def generate_default_password
