@@ -1,8 +1,7 @@
-#{@pub.ano}, #{@pub.conferencia}
-%br
-= @pub.autores.join(', ')
+%p #{@pub.ano}, #{@pub.conferencia}
+%p= @pub.autores.join(', ')
 
-%table;table
+%table.table
   %tr
     %th ISBN
     %td= @pub.isbn

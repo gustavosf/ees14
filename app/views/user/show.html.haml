@@ -1,21 +1,23 @@
-%h2 Editar usuário
+%h4 Editar usuário
+%hr
 
 = form_for @user, :url => {:controller => 'user', :action => 'update'} do |f|
-  %div
-    = label_tag :name, 'Nome'
-    = f.text_field :name
-  %div
-    = label_tag :email, 'E-Mail'
-    = f.text_field :email
-  %div
-    = label_tag :access, 'Grau de acesso'
-    = f.select :access do
-      = options_for_select [['Admin', 'admin'], ['Registrado', 'registrado']]
-  %div
-    = form_tag @user, method: 'delete' do
-      = label_tag :delete, 'Deseja excluir usuário?'
-      = submit_tag 'Deletar'
-  %div
-    = submit_tag 'Salvar'
-    = submit_tag 'Cancelar', onclick: 'history.back()'
-  
+  %table.table
+    %tr
+      %th= label_tag :name, 'Nome'
+      %td= f.text_field :name, class: 'form-control'
+    %tr
+      %th= label_tag :email, 'E-Mail'
+      %td= f.text_field :email, class: 'form-control'
+    %tr
+      %th= label_tag :access, 'Grau de acesso'
+      %td= f.select :access, [['Admin', 'admin'], ['Registrado', 'registrado']], {}, class: 'form-control'
+    %tr
+      %th
+      = form_tag @user, method: 'delete' do
+        %td
+          = label_tag :delete, 'Deseja excluir usuário?'
+          = submit_tag 'Deletar', class: 'btn btn-danger'
+
+  = submit_tag 'Salvar', class: 'btn btn-success'
+  = submit_tag 'Cancelar', onclick: 'history.back()', class: 'btn btn-default'
