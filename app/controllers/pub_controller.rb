@@ -26,13 +26,13 @@ class PubController < ApplicationController
     params[:publicacao][:autores] = params[:autores]
     pub.fill_with(params[:publicacao])
     pub.save    
-    redirect_to pub_index_path, notice: "A publicação #{pub.titulo} foi atualizada com sucesso!"
+    redirect_to pub_index_path, :flash => {success: "A publicação #{pub.titulo} foi atualizada com sucesso!"}
   end
 
   def destroy
     pub = Publicacao.find params[:id]
     pub.delete
-    redirect_to pub_index_path, notice: "A publicação #{pub.titulo} foi removida com sucesso!"
+    redirect_to pub_index_path, :flash => {success: "A publicação #{pub.titulo} foi removida com sucesso!"}
   end
 
   def create
@@ -40,21 +40,21 @@ class PubController < ApplicationController
     params[:publicacao][:autores] = params[:autores]
     pub.fill_with(params[:publicacao])
     pub.save
-    redirect_to pub_index_path, notice: "A publicação #{pub.titulo} foi cadastrada com sucesso!"
+    redirect_to pub_index_path, :flash => {success: "A publicação #{pub.titulo} foi cadastrada com sucesso!"}
   end
 
   def disable
     pub = Publicacao.find params[:id] 
     pub.enabled = false
     pub.save
-    redirect_to pub_path(pub), notice: "A publicação #{pub.titulo} foi desativada"
+    redirect_to pub_path(pub), :flash => {success: "A publicação #{pub.titulo} foi <b>desativada</b>"}
   end
 
   def enable
     pub = Publicacao.find params[:id] 
     pub.enabled = true
     pub.save
-    redirect_to pub_path(pub), notice: "A publicação #{pub.titulo} foi reativada"
+    redirect_to pub_path(pub), :flash => {success: "A publicação #{pub.titulo} foi <b>reativada</b>"}
   end
 
 end

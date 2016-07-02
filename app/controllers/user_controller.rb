@@ -22,19 +22,18 @@ class UserController < ApplicationController
     user.email = params[:user][:email]
     user.access = params[:user][:access]
     user.save
-    redirect_to user_index_path, notice: "O usuário #{user.name} foi atualizado com sucesso!"
+    redirect_to user_index_path, :flash => {success: "O usuário #{user.name} foi atualizado com sucesso!"}
   end
 
   def destroy
     user = User.find params[:id]
     user.delete
-    redirect_to user_index_path, notice: "O usuário #{user.name} foi removido com sucesso!"
+    redirect_to user_index_path, :flash => {success: "O usuário #{user.name} foi removido com sucesso!"}
   end
 
   def create
     if User.where(email: params[:user][:email]).exists? then
-      flash[:error] = "O e-mail #{params[:user][:email]} já está cadastrado no sistema!"
-      redirect_to new_user_path, error: "O e-mail #{params[:user][:email]} já está cadastrado no sistema!" 
+      redirect_to new_user_path, :flash => {error: "O e-mail #{params[:user][:email]} já está cadastrado no sistema!"}
       return
     end
 
@@ -43,6 +42,6 @@ class UserController < ApplicationController
     user.email = params[:user][:email]
     user.access = params[:user][:access]
     user.save
-    redirect_to user_index_path, notice: "O usuário #{user.name} foi cadastrado com sucesso!"
+    redirect_to user_index_path, :flash => {success: "O usuário #{user.name} foi cadastrado com sucesso!"}
   end
 end

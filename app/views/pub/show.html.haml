@@ -2,7 +2,8 @@
   .col-md-8
     %h2 Publicação
   .col-md-4{style:"text-align:right"}
-    %br= link_to 'Exportar', '#'
+    / %br= link_to 'Exportar', '#'
+    %br
     - if current_user.admin?
       - if @pub.enabled
         = link_to 'Desativar', disable_pub_path(@pub), onclick: 'return confirm("Deseja desativar esta produção?")'

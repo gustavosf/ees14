@@ -18,10 +18,10 @@
         </div>
       </nav>
 
-    - flash.each do |key, value|
-      %div.flash
-        = value
     .container.main
+      - flash.each do |key, value|
+        %div{:class => "alert alert-#{key}",:role => "alert"}
+          = value.html_safe
       = yield
     
     = javascript_include_tag "application", params[:controller]
