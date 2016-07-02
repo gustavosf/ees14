@@ -1,8 +1,11 @@
 = form_tag login_path, :method => 'post', :class => 'form-horizontal span6 offset3' do
-  %legend Entre seus dados
-
-  = text_field_tag :email, nil, :placeholder => 'e-mail'
-  %br
-  = password_field_tag :password, nil, :placeholder => 'senha'
-  %br
+  %h4 Entre seus dados
+  
+  %table.table
+    %tr
+      %th E-Mail
+      %td= text_field_tag :email, nil, :placeholder => 'e-mail', class: 'form-control'
+    %tr
+      %th Senha
+      %td= password_field_tag :password, nil, :placeholder => 'senha', class: 'form-control'
   = submit_tag "Entrar", :class => 'btn btn-primary'

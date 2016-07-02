@@ -1,23 +1,20 @@
 Rails.application.routes.draw do
 
-  root to: 'home#index'
+  root to: 'pub#index'
 
   resources :user
   resources :pub
+
   controller :pub do
     get 'pub/:id/disable', to: 'pub#disable', as: 'disable_pub'
     get 'pub/:id/enable', to: 'pub#enable', as: 'enable_pub'
   end
-
 
   resources :session, :only => [:new, :create, :destroy]
   controller :session do 
     get  'login'  => :new
     post 'login'  => :create
     get  'logout' => :destroy
-  end
-
-  controller :home do
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
