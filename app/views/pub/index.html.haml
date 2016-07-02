@@ -34,6 +34,6 @@
         %span.pub-ano [#{pub.ano}]
         %span.pub-titulo= link_to pub.titulo, pub_path(:id => pub.id)
         - unless pub.enabled
-          %span{color:red} [desabilitado]
+          %span{:style => 'color:red'} [desativado]
         %br
         #{pub.autores.join(', ')}
